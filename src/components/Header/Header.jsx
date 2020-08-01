@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
+import { logOut } from "../auth/authActions";
 import { routesNames } from "../../constants";
-import { logOut } from "../auth/actions";
 
-const Header = ({ onLogOut }) => {
+const Header = ({ onLogOut, userEmail }) => {
   const history = useHistory();
 
   const handleLogOut = () => {
@@ -21,7 +21,9 @@ const Header = ({ onLogOut }) => {
           LOGO
         </Grid>
 
-        <Grid item xs></Grid>
+        <Grid item xs>
+          {userEmail && <span>Hello, {userEmail}</span>}
+        </Grid>
 
         <Grid item xs="auto">
           <Button variant="contained" color="primary" onClick={handleLogOut}>
@@ -33,6 +35,11 @@ const Header = ({ onLogOut }) => {
   );
 };
 
-export default connect(null, {
-  onLogOut: logOut,
-})(Header);
+export default connect(
+  (state) => ({
+    userEmail: state.auth.userEmail,
+  }),
+  {
+    onLogOut: logOut,
+  }
+)(Header);

@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+
 import "../../styles.scss";
 import PageLayout from "../PageLayout/PageLayout";
 import { SignUpPage, LoginPage } from "../auth";

@@ -3,18 +3,23 @@ import { connect } from "react-redux";
 import { Grid, Button, CircularProgress } from "@material-ui/core";
 import { Formik, Form } from "formik";
 import { cloneDeep } from "lodash";
+import { useHistory } from "react-router-dom";
 
 import { PasswordField, FormField } from "../../FormField";
 import { SignUpValidFormScheme } from "../../../services/validationSchemas";
-import { signUp } from "../thunks";
+import { signUp } from "../authActions";
+import { routesNames } from "../../../constants";
 
 const SignUpForm = ({ isLoading, onSignUp }) => {
+  const history = useHistory();
+
   const submitForm = (values) => {
     const formData = cloneDeep(values);
 
     delete formData.retypePassword;
 
     onSignUp(formData);
+    history.push(routesNames.login);
   };
 
   if (isLoading) return <CircularProgress />;

@@ -6,7 +6,7 @@ import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import { store } from "../../store";
 import theme from "../../theme";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
-import App from "../App/App";
+import Routes from "../Routes/Routes";
 
 const Root = () => {
   return (
@@ -15,7 +15,7 @@ const Root = () => {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Router>
-            <App />
+            <Routes />
           </Router>
         </ThemeProvider>
       </ErrorBoundary>

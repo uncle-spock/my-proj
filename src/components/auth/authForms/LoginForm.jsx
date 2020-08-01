@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 
 import { PasswordField, FormField } from "../../FormField";
 import { SignInValidFormScheme } from "../../../services/validationSchemas";
-import { login } from "../thunks";
+import { login } from "../authActions";
 import { routesNames } from "../../../constants";
 
 const LoginForm = ({ isAuth, isLoading, onLogin }) => {
