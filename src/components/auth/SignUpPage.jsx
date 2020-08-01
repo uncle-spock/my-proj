@@ -1,49 +1,18 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
-import { PasswordField, FormField } from "../FormField";
+import { Box } from "@material-ui/core";
+import SignUpForm from "./authForms/SignUpForm";
+import { Link } from "react-router-dom";
+import { routesNames } from "../../constants";
 
 const SignUpPage = () => {
   return (
-    <div>
+    <Box maxWidth="500px" m="0 auto" textAlign="center">
       <h1>Sign Up</h1>
 
-      <form>
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <FormField
-              name="email"
-              label="Email"
-              type="email"
-              variant="outlined"
-              labelWidth={40}
-              fullWidth
-            />
-          </Grid>
+      <SignUpForm />
 
-          <Grid item xs={12}>
-            <PasswordField
-              name="password"
-              label="Password"
-              variant="outlined"
-              labelWidth={70}
-              fullWidth
-              isEndAdornment
-            />
-          </Grid>
-
-          <Grid item xs={12}>
-            <PasswordField
-              name="password2"
-              label="Retype Password"
-              variant="outlined"
-              labelWidth={125}
-              fullWidth
-              isEndAdornment
-            />
-          </Grid>
-        </Grid>
-      </form>
-    </div>
+      <Link to={routesNames.login}>Go to Login Page</Link>
+    </Box>
   );
 };
 
